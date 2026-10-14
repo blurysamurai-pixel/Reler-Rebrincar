@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduTroca - Troca e Doação Escolar</title>
+  <style>
+    /* Estilos Gerais */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Cabeçalho */
+    header {
+      background-color: #4A90E2;
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    /* Banner Principal */
+    .hero {
+      background-color: #E8F1F5;
+      text-align: center;
+      padding: 3rem 1rem;
+      border-bottom: 2px solid #D0E1E9;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #2C3E50;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-main {
+      background-color: #2ECC71;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.2s;
+    }
+
+    .btn-main:hover {
+      background-color: #27AE60;
+    }
+
+    /* Seção de Conteúdo */
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Filtros e Busca */
+    .search-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .search-bar input, .search-bar select {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .search-bar input[type="text"] {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    /* Grid de Itens */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background-color: #eee;
+    }
+
+    .card-body {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .tag {
+      align-self: flex-start;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .tag.livro {
+      background-color: #E1F5FE;
+      color: #0288D1;
+    }
+
+    .tag.brinquedo {
+      background-color: #FFF3E0;
+      color: #E65100;
+    }
+
+    .type-badge {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .card-info {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .btn-card {
+      text-align: center;
+      background-color: #4A90E2;
+      color: white;
+      padding: 0.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .btn-card:hover {
+      background-color: #357ABD;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #2C3E50;
+      color: white;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1>📚 EduTroca</h1>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Livros</a>
+      <a href="#">Brinquedos</a>
+      <a href="#">Cadastrar Item</a>
+    </nav>
+  </header>
+
+  <!-- Banner Principal -->
+  <section class="hero">
+    <h2>Compartilhe, Doa e Transforme!</h2>
+    <p>Conectando alunos e famílias para trocar livros didáticos, de leitura e brinquedos na comunidade escolar.</p>
+    <a href="#" class="btn-main">+ Anunciar um Item</a>
+  </section>
+
+  <!-- Conteúdo Principal -->
+  <div class="container">
+    
+    <!-- Barra de Pesquisa e Filtro -->
+    <div class="search-bar">
+      <input type="text" placeholder="O que você está procurando hoje?">
+      <select>
+        <option value="">Todas as Categorias</option>
+        <option value="livro">Livros</option>
+        <option value="brinquedo">Brinquedos</option>
+      </select>
+      <select>
+        <option value="">Troca ou Doação</option>
+        <option value="doacao">Para Doação</option>
+        <option value="troca">Para Troca</option>
+      </select>
+    </div>
+
+    <!-- Lista de Itens -->
+    <div class="grid">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180?text=Livro+de+Historia" alt="Livro de História">
+        <div class="card-body">
+          <span class="tag livro">Livro</span>
+          <div class="type-badge">🎁 Disponível para Doação</div>
+          <h3 class="card-title">História Geral - 8º Ano</h3>
+          <p class="card-info">Em ótimo estado de conservação, sem grifos.</p>
+          <a href="#" class="btn-card">Tenho Interesse</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180?text=Jogo+de+Tabuleiro" alt="Jogo de Tabuleiro">
+        <div class="card-body">
+          <span class="tag brinquedo">Brinquedo</span>
+          <div class="type-badge">🔄 Disponível para Troca</div>
+          <h3 class="card-title">Jogo de Xadrez Educativo</h3>
+          <p class="card-info">Completo com todas as peças. Troco por livros infantis.</p>
+          <a href="#" class="btn-card">Tenho Interesse</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180?text=Livro+Infantil" alt="Livro Infantil">
+        <div class="card-body">
+          <span class="tag livro">Livro</span>
+          <div class="type-badge">🎁 Disponível para Doação</div>
+          <h3 class="card-title">O Pequeno Príncipe</h3>
+          <p class="card-info">Edição ilustrada, ideal para leitura do ensino fundamental.</p>
+          <a href="#" class="btn-card">Tenho Interesse</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="https://via.placeholder.com/300x180?text=Blocos+de+Montar" alt="Blocos de Montar">
+        <div class="card-body">
+          <span class="tag brinquedo">Brinquedo</span>
+          <div class="type-badge">🔄 Disponível para Troca</div>
+          <h3 class="card-title">Kit Blocos de Montar</h3>
+          <p class="card-info">Cerca de 100 peças coloridas em bom estado.</p>
+          <a href="#" class="btn-card">Tenho Interesse</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2026 EduTroca - Projeto de Incentivo à Leitura e Sustentabilidade Escolar.</p>
+  </footer>
+
+</body>
+</html>
